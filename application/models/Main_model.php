@@ -5,26 +5,26 @@ class Main_model extends CI_Model{
 		$this->load->database();
 	}
 	//get hores details
-	public function get_hores_details(){
-		$query = $this->db->get('hores_details');
-		$hores_details = $query->row_array();
-		return $hores_details;
+	public function get_heroku_886b833ca4f1ed0_details(){
+		$query = $this->db->get('heroku_886b833ca4f1ed0_details');
+		$heroku_886b833ca4f1ed0_details = $query->row_array();
+		return $heroku_886b833ca4f1ed0_details;
 	}
 	//get user perm
 	public function get_user_perm($userid){
-		$query = $this->db->get_where('hores_perm',array('userid'=>$userid));
+		$query = $this->db->get_where('heroku_886b833ca4f1ed0_perm',array('userid'=>$userid));
 		$user_perm = $query->row_array();
 		return $user_perm;
 	}
 	//check client id
 	public function check_client_id($client_id){
-		$query = $this->db->get_where('hores_clients',array('client_id'=>$client_id));
+		$query = $this->db->get_where('heroku_886b833ca4f1ed0_clients',array('client_id'=>$client_id));
 		$client = $query->row_array();
 		return $client;
 	}
 	//check userid
 	public function check_userid($userid){
-		$query = $this->db->get_where('hores_users',array('userid'=>$userid));
+		$query = $this->db->get_where('heroku_886b833ca4f1ed0_users',array('userid'=>$userid));
 		$user = $query->row_array();
 		return $user;
 	}
@@ -32,11 +32,11 @@ class Main_model extends CI_Model{
 	public function get_bookings($limit,$offset,$category){
 		if(strcmp($category,"all") === 0)
 		{
-			$query = $this->db->limit($limit,$offset)->order_by('id','DESC')->get('hores_bookings');
+			$query = $this->db->limit($limit,$offset)->order_by('id','DESC')->get('heroku_886b833ca4f1ed0_bookings');
 		}
 		elseif(strcmp($category,"starred") === 0)
 		{
-			$query = $this->db->limit($limit,$offset)->order_by('id','DESC')->get_where('hores_bookings',array('starred'=>'yes'));
+			$query = $this->db->limit($limit,$offset)->order_by('id','DESC')->get_where('heroku_886b833ca4f1ed0_bookings',array('starred'=>'yes'));
 		}
 		$bookings = $query->result_array();
 		return $bookings;
